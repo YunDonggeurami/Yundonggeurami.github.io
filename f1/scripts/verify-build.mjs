@@ -15,7 +15,10 @@ assert((html.match(/<h1\b/g) || []).length === 1, "The page must contain exactly
 assert(html.includes('class="skip-link"'), "The skip link is missing.");
 assert(html.includes('href="#main-content"'), "The skip link does not target the main content.");
 assert(html.includes('id="main-content"'), "The main content target is missing.");
-assert(!/<meta[^>]+(?:og:image|twitter:image)/i.test(html), "Image metadata is present before a real OG image is supplied.");
+assert(/<meta[^>]+property="og:image"/i.test(html), "Open Graph image metadata is missing.");
+assert(/<meta[^>]+name="twitter:image"/i.test(html), "Twitter image metadata is missing.");
+assert(html.includes('poster="./media/mlgp-quest3-demo-poster.webp"'), "The Quest 3 demo poster is not wired.");
+assert(html.includes('src="./media/mlgp-quest3-demo.mp4"'), "The Quest 3 demo video is not wired.");
 assert(!/(google-analytics|googletagmanager|segment\.com|hotjar|mixpanel)/i.test(html), "An unexpected analytics or tracking script is present.");
 
 const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]));
@@ -52,6 +55,19 @@ const authoredAssets = (await walk(distDirectory)).filter((url) => /\.(?:html|cs
 let authoredBytes = 0;
 for (const asset of authoredAssets) authoredBytes += (await stat(asset)).size;
 assert(authoredBytes < 100_000, `Authored HTML/CSS/JS is ${authoredBytes} bytes; expected less than 100 KB before media.`);
+
+for (const [relativePath, maximumBytes] of [
+  ["media/mlgp-quest3-demo.mp4", 100_000_000],
+  ["media/mlgp-quest3-demo-poster.webp", 500_000],
+]) {
+  try {
+    const mediaStat = await stat(new URL(relativePath, distDirectory));
+    assert(mediaStat.size > 0, `${relativePath} is empty.`);
+    assert(mediaStat.size < maximumBytes, `${relativePath} is ${mediaStat.size} bytes; expected less than ${maximumBytes}.`);
+  } catch {
+    failures.push(`${relativePath} is missing from the production build.`);
+  }
+}
 
 const assetDirectory = new URL("assets/", distDirectory);
 for (const entry of await readdir(assetDirectory, { withFileTypes: true })) {

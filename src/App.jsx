@@ -46,16 +46,13 @@ const projects = [
     title: "MY LITTLE GRAND PRIX",
     type: "Unity / Meta Quest / Mixed Reality",
     status: "In Progress",
-    image: null,
-    mediaLabel: "Quest MR Capture Pending",
+    image: "/f1/media/mlgp-quest3-demo-poster.webp",
     description:
         "과거 F1 데이터셋을 하나의 시간축에서 다중 차량 리플레이로 재구성하고, 선택한 이벤트를 실제 방의 Hero 지점에 MR 디오라마로 다시 배치한 기술 프로젝트입니다.",
-    rolesTitle: "기술 하이라이트 · 개인 담당 범위 확인 필요",
+    rolesTitle: "개인 담당 · 본인 확인",
     roles: [
-      "manifest/chunk 기반 다중 차량 replay pipeline",
-      "AR plane 기반 Entry · Exit · Hero room layout",
-      "logical replay와 room presentation transform 분리",
-      "event-local two-car RoomDiorama",
+      "Meta Quest 3 관련 구현 및 MR 실기기 통합",
+      "companion REST backend 및 replay dataset 전달 경로",
     ],
     trouble:
         "현재 기본 디오라마는 Hero 중심 강체 배치이며, Entry와 Exit 벽을 차량이 반드시 통과하는 구조는 아닙니다. setup preview와 실제 vehicle mapper를 하나의 검증된 path로 통합하는 것이 다음 핵심 개선 과제입니다.",
@@ -63,6 +60,7 @@ const projects = [
       github: "https://github.com/SiyeolKwak/F1_XR_Visualizer",
       githubLabel: "Team GitHub",
       caseStudy: "/f1/",
+      video: "/f1/#demo",
     },
   },
 ];

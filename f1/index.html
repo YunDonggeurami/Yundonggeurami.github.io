@@ -18,12 +18,19 @@
       content="과거 F1 데이터셋을 하나의 시간축에서 재생하고 실제 방의 Hero 지점에 MR 디오라마로 다시 배치한 기술 사례."
     />
     <meta property="og:url" content="__SITE_URL__" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="__SITE_URL__media/mlgp-quest3-demo-poster.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:image:alt" content="Quest 3 패스스루 공간에 배치된 MY LITTLE GRAND PRIX 리플레이 디오라마" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="MY LITTLE GRAND PRIX — Unity MR F1 Replay Case Study" />
     <meta
       name="twitter:description"
       content="Unity/OpenXR로 구현한 다중 차량 F1 리플레이와 방 크기 MR 디오라마 기술 사례."
     />
+    <meta name="twitter:image" content="__SITE_URL__media/mlgp-quest3-demo-poster.webp" />
+    <meta name="twitter:image:alt" content="Quest 3 패스스루 공간에 배치된 MY LITTLE GRAND PRIX 리플레이 디오라마" />
     <link rel="canonical" href="__SITE_URL__" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 fill=%22%23080a0c%22/><path d=%22M7 23V9h5l4 7 4-7h5v14h-4v-8l-4 7h-2l-4-7v8z%22 fill=%22%23e5322d%22/></svg>" />
     <link rel="stylesheet" href="/src/styles.css" />
@@ -36,6 +43,7 @@
         "alternateName": "F1_XR_Visualizer",
         "description": "A Unity XR technical study that reconstructs externally prepared historical F1 replay datasets on a shared source-time timeline and presents selected events as a room-scale mixed-reality diorama.",
         "url": "__SITE_URL__",
+        "image": "__SITE_URL__media/mlgp-quest3-demo-poster.webp",
         "codeRepository": "https://github.com/SiyeolKwak/F1_XR_Visualizer",
         "programmingLanguage": "C#",
         "runtimePlatform": "Unity 6000.4.11f1, Android, OpenXR",
@@ -120,7 +128,7 @@
         </div>
         <div class="rail-item">
           <span class="rail-label">Evidence</span>
-          <span class="rail-value">Code + scene wiring</span>
+          <span class="rail-value">Code + scene + demo</span>
         </div>
       </div>
 
@@ -202,41 +210,50 @@
             <span class="section-kicker">Demo evidence</span>
           </div>
           <div>
-            <h2 id="demo-title" class="section-title reveal">Real capture belongs here.</h2>
-            <div
-              class="media-stage reveal"
-              role="img"
-              aria-label="Quest 3에서 방 설정부터 이벤트 디오라마 재생까지 보여 줄 메인 데모 영상 자리"
-            >
-              <div class="media-placeholder">
-                <span class="micro-label">Media slot / 16:9</span>
-                <strong>Quest MR hero demo</strong>
-                <p>
-                  저장소에 공개 가능한 실제 제품 영상이 없어 비워 두었습니다. 방 설정 → 이벤트 선택 →
-                  Hero 중심 재생을 한 흐름으로 촬영한 권리 확인 영상을 넣어야 합니다.
-                </p>
+            <h2 id="demo-title" class="section-title reveal">Quest 3 demo session.</h2>
+            <figure class="media-figure reveal">
+              <div class="media-stage">
+                <video
+                  class="demo-video"
+                  controls
+                  preload="metadata"
+                  playsinline
+                  poster="./media/mlgp-quest3-demo-poster.webp"
+                  width="1280"
+                  height="720"
+                  aria-label="Meta Quest 3에서 실행한 MY LITTLE GRAND PRIX 편집 시연 영상"
+                >
+                  <source src="./media/mlgp-quest3-demo.mp4" type="video/mp4" />
+                  이 브라우저는 MP4 영상을 지원하지 않습니다.
+                  <a href="./media/mlgp-quest3-demo.mp4">시연 영상 열기</a>
+                </video>
               </div>
-            </div>
+              <figcaption class="demo-caption">
+                작성자가 Quest 3 시연으로 제공한 1분 59초 편집본입니다. 패스스루 공간의 리플레이 스테이지,
+                이벤트 연출, MR↔VR 공간 전환과 어시스턴트 장면을 보여 줍니다. 이는 해당 데모 세션에서 관찰된
+                실행 결과이며 FPS·지연시간·장시간 안정성 또는 모든 기능의 검증을 뜻하지 않습니다.
+              </figcaption>
+            </figure>
             <div class="media-grid reveal">
               <article class="media-tile">
-                <span class="micro-label">01 / Room</span>
-                <h3>Wall discovery</h3>
-                <p>Entry/Exit 벽의 자동 구성 또는 수동 선택 장면</p>
+                <span class="micro-label">01 / Demo observation</span>
+                <h3>Session Space</h3>
+                <p>패스스루 방 공간 위에 배치된 리플레이 스테이지와 공유 타임라인</p>
               </article>
               <article class="media-tile">
-                <span class="micro-label">02 / Layout</span>
-                <h3>Entry · Hero · Exit</h3>
-                <p>방향과 Hero focus를 확인하는 setup 장면</p>
+                <span class="micro-label">02 / Demo observation</span>
+                <h3>Race Events</h3>
+                <p>스타트·추월·피트·날씨 구간을 공간 연출로 전환하는 편집 장면</p>
               </article>
               <article class="media-tile">
-                <span class="micro-label">03 / Replay</span>
-                <h3>Two-car diorama</h3>
-                <p>event-local source track을 방 크기로 재배치한 장면</p>
+                <span class="micro-label">03 / Demo observation</span>
+                <h3>Spatial Transition</h3>
+                <p>MR 패스스루 표현에서 immersive VR 연출로 전환되는 장면</p>
               </article>
               <article class="media-tile">
-                <span class="micro-label">04 / Event</span>
-                <h3>Overtake reconstruction</h3>
-                <p>실제 경로 증명이 아닌 연출 재구성임이 보이는 장면</p>
+                <span class="micro-label">04 / Demo observation</span>
+                <h3>Assistant &amp; Interaction</h3>
+                <p>라디오형 안내, 트랙 가이드와 인터랙티브 광고 시연 장면</p>
               </article>
             </div>
           </div>
@@ -533,8 +550,9 @@
               <div>
                 <p class="body-copy">
                   Quest 3가 포함된 Meta Quest 대상, passthrough camera, planes, anchors, raycasts, mesh, boundary와
-                  composition-layer feature가 설정되어 있습니다. 다만 이 정적 감사에서는 OpenXR 초기화와 실기기 동작을
-                  실행하지 않았으므로 “Quest 3에서 검증 완료”라고 표현하지 않습니다.
+                  composition-layer feature가 설정되어 있습니다. 별도로 제공된 Quest 3 시연 영상에서는 패스스루 공간과
+                  리플레이 연출의 실행을 관찰할 수 있지만, 정적 감사에서 OpenXR 초기화나 기기 프로파일링을 재실행한 것은
+                  아니므로 완전한 기기 검증이나 성능 벤치마크로 확대하지 않습니다.
                 </p>
                 <p class="body-copy">
                   Hand Tracking과 environment occlusion은 현재 플랫폼 설정에서 꺼져 있으며 기술 스택 주장에 포함하지 않았습니다.
@@ -563,20 +581,23 @@
             <span class="section-kicker">My contribution</span>
           </div>
           <div>
-            <h2 id="contribution-title" class="section-title reveal">Ownership must be evidenced.</h2>
+            <h2 id="contribution-title" class="section-title reveal">Quest 3 &amp; companion backend.</h2>
             <div class="contribution-panel reveal">
               <div class="contribution-copy">
-                <h3>Verified role goes here</h3>
+                <h3>Quest 3 integration · Replay backend</h3>
                 <p>
-                  공개 전 본인의 역할, 담당 시스템, 팀 규모, 작업 기간을 입력하세요. “리플레이 타임라인 설계”,
-                  “MR room layout 구현”, “Quest 배포”처럼 실제로 소유한 범위만 쓰고 commit·issue·설계 문서 또는
-                  데모 기록으로 뒷받침해야 합니다.
+                  본인 확인 기준으로 Meta Quest 3 관련 구현과 companion backend를 담당했습니다. Quest 3 쪽에서는
+                  MR 실행 환경과 실기기 통합을, backend 쪽에서는 replay dataset을 Unity 클라이언트에
+                  catalog·dataset·manifest·chunk 계약으로 제공하는 REST 전달 경로를 맡았습니다.
                 </p>
               </div>
-              <aside class="verification-box" aria-label="기여 범위 검증 상태">
-                <span class="status status-experimental">Verification required</span>
-                <h3>여러 기여자가 확인됨</h3>
-                <p>저장소 이력만으로 개인 기여 범위를 안전하게 확정할 수 없어 의도적으로 비워 두었습니다.</p>
+              <aside class="verification-box" aria-label="기여 범위 확인 근거">
+                <span class="status status-user-confirmed">User-confirmed</span>
+                <h3>작성자 확인 기여</h3>
+                <p>
+                  소유 범위는 작성자 확인에 근거합니다. 저장소 감사는 Quest 대상 설정과 Unity 쪽 REST 계약을 별도로
+                  확인했으며, 시연 영상은 데모 세션 관찰이지 성능 벤치마크가 아닙니다.
+                </p>
               </aside>
             </div>
           </div>
@@ -593,11 +614,13 @@
             <h2 id="evidence-title" class="section-title reveal">What the repository proves — and does not.</h2>
             <div class="intro-grid reveal">
               <p class="lead">
-                이 페이지의 “Verified”는 코드와 기본 씬 연결을 확인했다는 뜻입니다. 기기 실행이나 성능 보증은 아닙니다.
+                이 페이지의 “Verified”는 코드와 기본 씬 연결을 확인했다는 뜻입니다. Quest 3 데모 관찰과
+                User-confirmed 기여 표시는 이 판정과 별도로 구분합니다.
               </p>
               <p class="body-copy">
                 감사 과정에서 호출점, 직렬화된 컴포넌트, 활성 플랫폼 설정을 우선했습니다. 대체 씬과 미호출 코드는 별도
-                상태로 내렸고, 테스트·Quest·백엔드는 실행하지 않았습니다.
+                상태로 내렸고, 정적 감사 자체는 테스트·Quest·백엔드를 직접 실행하지 않았습니다. 이후 제공된 영상은
+                Quest 3 데모 세션 관찰로, 기여 범위는 작성자 확인으로 기록했습니다.
               </p>
             </div>
             <div class="evidence-details reveal">
@@ -620,7 +643,7 @@
                 <summary>공개 주장에 넣지 않은 것</summary>
                 <p>
                   Unity의 OpenF1 직접 연동, live data, 자동 전체 이벤트 검출, connected dual-wall portal, Entry/Exit
-                  차량 관통 보장, full room mesh, hand tracking, environment occlusion, Quest 검증·FPS·latency·accuracy입니다.
+                  차량 관통 보장, full room mesh, hand tracking, environment occlusion, Quest 전체 검증·FPS·latency·accuracy입니다.
                 </p>
               </details>
             </div>

@@ -35,4 +35,4 @@ The repository-level Pages workflow builds the root portfolio first, builds this
 
 ## Media
 
-The page remains usable without unpublished project media. See [`public/assets/README.md`](public/assets/README.md) for the exact replacement filenames and capture guidance.
+The published case study uses the user-supplied Quest 3 edit at `public/media/mlgp-quest3-demo.mp4` and its poster frame. The video is presented as a demo-session observation, not as a performance benchmark or a replacement for the repository-audited status labels. See [`public/assets/README.md`](public/assets/README.md) for the media record and publication cautions.
