@@ -1,4 +1,23 @@
-# React + Vite
+# YunDonggeurami portfolio
+
+The root React/Vite portfolio is published at `https://yundonggeurami.github.io/`. The repository also contains the audited MY LITTLE GRAND PRIX case study in `f1/`, published by the same GitHub Pages workflow at `https://yundonggeurami.github.io/f1/`.
+
+The workflow builds both sites and uploads one combined Pages artifact, so the root portfolio and the F1 case study cannot overwrite one another.
+
+## Local validation
+
+```bash
+npm ci
+npm run lint
+npm run build
+
+cd f1
+npm ci
+npm run build
+npm run verify
+```
+
+## Original Vite template notes
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

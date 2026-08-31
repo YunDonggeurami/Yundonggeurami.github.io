@@ -22,25 +22,56 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            f1/package-lock.json
 
-      - name: Install dependencies
+      - name: Install portfolio dependencies
         run: npm ci
 
-      - name: Build
+      - name: Lint portfolio
+        run: npm run lint
+
+      - name: Build portfolio
         run: npm run build
 
+      - name: Install F1 case-study dependencies
+        working-directory: f1
+        run: npm ci
+
+      - name: Build F1 case study
+        working-directory: f1
+        env:
+          VITE_BASE_PATH: /f1/
+          VITE_SITE_URL: https://yundonggeurami.github.io/f1/
+        run: npm run build
+
+      - name: Verify F1 case study
+        working-directory: f1
+        run: npm run verify
+
+      - name: Merge F1 case study into portfolio artifact
+        shell: bash
+        run: |
+          mkdir -p dist/f1
+          cp -R f1/dist/. dist/f1/
+          test -f dist/index.html
+          test -f dist/f1/index.html
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
 
@@ -55,4 +86,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

@@ -43,15 +43,27 @@ const projects = [
     links: null,
   },
   {
-    title: "Main Project",
-    type: "큰 프로젝트",
-    status: "Planned",
+    title: "MY LITTLE GRAND PRIX",
+    type: "Unity / Meta Quest / Mixed Reality",
+    status: "In Progress",
     image: null,
+    mediaLabel: "Quest MR Capture Pending",
     description:
-        "더 긴 플레이 루프와 구조화된 시스템을 보여주는 메인 프로젝트를 추가할 예정입니다.",
-    roles: ["핵심 시스템 3~5개 구현 예정", "시스템 구조도 작성 예정", "트러블슈팅 2~3개 기록 예정"],
-    trouble: null,
-    links: null,
+        "과거 F1 데이터셋을 하나의 시간축에서 다중 차량 리플레이로 재구성하고, 선택한 이벤트를 실제 방의 Hero 지점에 MR 디오라마로 다시 배치한 기술 프로젝트입니다.",
+    rolesTitle: "기술 하이라이트 · 개인 담당 범위 확인 필요",
+    roles: [
+      "manifest/chunk 기반 다중 차량 replay pipeline",
+      "AR plane 기반 Entry · Exit · Hero room layout",
+      "logical replay와 room presentation transform 분리",
+      "event-local two-car RoomDiorama",
+    ],
+    trouble:
+        "현재 기본 디오라마는 Hero 중심 강체 배치이며, Entry와 Exit 벽을 차량이 반드시 통과하는 구조는 아닙니다. setup preview와 실제 vehicle mapper를 하나의 검증된 path로 통합하는 것이 다음 핵심 개선 과제입니다.",
+    links: {
+      github: "https://github.com/SiyeolKwak/F1_XR_Visualizer",
+      githubLabel: "Team GitHub",
+      caseStudy: "/f1/",
+    },
   },
 ];
 
@@ -97,7 +109,7 @@ function ProjectCard({ project }) {
             </div>
         ) : (
             <div style={styles.placeholderBox}>
-              <p style={styles.mediaText}>Coming Soon</p>
+              <p style={styles.mediaText}>{project.mediaLabel ?? "Coming Soon"}</p>
             </div>
         )}
 
@@ -112,7 +124,7 @@ function ProjectCard({ project }) {
 
         <p style={styles.projectDescription}>{project.description}</p>
 
-        <h4 style={styles.subTitle}>담당 / 예정 구현</h4>
+        <h4 style={styles.subTitle}>{project.rolesTitle ?? "담당 / 예정 구현"}</h4>
         <ul style={styles.list}>
           {project.roles.map((role) => (
               <li key={role}>{role}</li>
@@ -128,15 +140,36 @@ function ProjectCard({ project }) {
 
         {project.links && (
             <div style={styles.buttonRow}>
-              <a style={styles.button} href={project.links.github}>
-                GitHub
-              </a>
-              <a style={styles.button} href={project.links.video}>
-                Video
-              </a>
-              <a style={styles.button} href={project.links.build}>
-                Build
-              </a>
+              {project.links.caseStudy && (
+                  <a
+                      style={styles.button}
+                      href={project.links.caseStudy}
+                      target="_blank"
+                      rel="noreferrer"
+                  >
+                    Case Study
+                  </a>
+              )}
+              {project.links.github && (
+                  <a
+                      style={styles.button}
+                      href={project.links.github}
+                      target={project.links.github === "#" ? undefined : "_blank"}
+                      rel={project.links.github === "#" ? undefined : "noreferrer"}
+                  >
+                    {project.links.githubLabel ?? "GitHub"}
+                  </a>
+              )}
+              {project.links.video && (
+                  <a style={styles.button} href={project.links.video}>
+                    Video
+                  </a>
+              )}
+              {project.links.build && (
+                  <a style={styles.button} href={project.links.build}>
+                    Build
+                  </a>
+              )}
             </div>
         )}
       </article>
