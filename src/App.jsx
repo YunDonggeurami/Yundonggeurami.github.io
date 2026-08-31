@@ -1,331 +1,243 @@
-const projects = [
-  {
-    title: "Pet Log",
-    type: "3D Low Poly 탐험형 동물 촬영·수집 게임",
-    status: "In Progress",
-    image: "/images/petlog-main.png",
-    description:
-        "도시를 탐험하며 동물을 발견하고, 카메라로 촬영한 뒤 게임 내 SNS인 Set Log에 기록을 업로드하는 짧은 수집형 어드벤처 게임입니다.",
-    roles: [
-      "Raycast 기반 동물 감지",
-      "촬영 성공/실패 판정",
-      "Set Log 게시글 및 친구 반응 UI 연동",
-      "UI 제외 스크린샷 저장",
-    ],
-    trouble:
-        "촬영 직후 UI가 스크린샷에 포함되는 문제가 발생했습니다. UI를 비활성화한 뒤 WaitForEndOfFrame으로 프레임 렌더링 종료 시점을 기다린 후 캡처하도록 수정했습니다.",
-    links: {
-      github: "#",
-      video: "#",
-      build: "#",
-    },
-  },
-  {
-    title: "Small Project 01",
-    type: "작은 프로젝트",
-    status: "Planned",
-    image: null,
-    description:
-        "작은 범위에서 하나의 핵심 게임 메커니즘을 검증하는 프로젝트를 추가할 예정입니다.",
-    roles: ["핵심 기능 2~3개 구현 예정", "트러블슈팅 1개 기록 예정", "30초 영상 제작 예정"],
-    trouble: null,
-    links: null,
-  },
-  {
-    title: "Small Project 02",
-    type: "작은 프로젝트",
-    status: "Planned",
-    image: null,
-    description:
-        "첫 번째 작은 프로젝트와 다른 기술 포인트를 보여주는 프로젝트를 추가할 예정입니다.",
-    roles: ["중복되지 않는 기술 주제 선택", "핵심 코드 일부 정리", "GIF 2~3개 제작 예정"],
-    trouble: null,
-    links: null,
-  },
-  {
-    title: "MY LITTLE GRAND PRIX",
-    type: "Unity / Meta Quest / Mixed Reality",
-    status: "In Progress",
-    image: "/f1/media/mlgp-quest3-demo-poster.webp",
-    description:
-        "과거 F1 데이터셋을 하나의 시간축에서 다중 차량 리플레이로 재구성하고, 선택한 이벤트를 실제 방의 Hero 지점에 MR 디오라마로 다시 배치한 기술 프로젝트입니다.",
-    rolesTitle: "개인 담당 · 본인 확인",
-    roles: [
-      "Meta Quest 3 관련 구현 및 MR 실기기 통합",
-      "companion REST backend 및 replay dataset 전달 경로",
-    ],
-    trouble:
-        "현재 기본 디오라마는 Hero 중심 강체 배치이며, Entry와 Exit 벽을 차량이 반드시 통과하는 구조는 아닙니다. setup preview와 실제 vehicle mapper를 하나의 검증된 path로 통합하는 것이 다음 핵심 개선 과제입니다.",
-    links: {
-      github: "https://github.com/SiyeolKwak/F1_XR_Visualizer",
-      githubLabel: "Team GitHub",
-      caseStudy: "/f1/",
-      video: "/f1/#demo",
-    },
-  },
-];
-
 function App() {
   return (
-      <main style={styles.page} className="page">
-        <section style={styles.hero}>
-          <p style={styles.label}>Unity Gameplay Portfolio</p>
+    <div className="site-shell">
+      <a className="skip-link" href="#main-content">본문으로 건너뛰기</a>
 
-          <h1 style={styles.title} className="hero-title">
-            Unity와 C#으로 게임 시스템을 구현하는 개발자 포트폴리오
-          </h1>
+      <header className="site-header">
+        <a className="wordmark" href="#top" aria-label="포트폴리오 맨 위로">
+          <span className="wordmark-mark" aria-hidden="true">Y</span>
+          <span>YUN / XR PORTFOLIO</span>
+        </a>
+        <nav aria-label="주요 메뉴">
+          <a href="#featured">Featured</a>
+          <a href="#role">My Role</a>
+          <a href="#work">Work</a>
+          <a href="/f1/">F1 Case Study</a>
+        </nav>
+      </header>
 
-          <p style={styles.description}>
-            카메라 촬영, UI 흐름, 저장 시스템, 플레이어 상호작용을 중심으로
-            직접 구현한 기능과 문제 해결 과정을 정리합니다.
-          </p>
+      <main id="main-content">
+        <section id="top" className="hero" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="eyebrow"><span /> Featured XR Project · 2026</p>
+            <h1 id="hero-title">
+              레이스 데이터를
+              <strong>Quest 3의 공간 경험으로.</strong>
+            </h1>
+            <p className="hero-lede">
+              과거 F1 리플레이를 공간형 MR 경험으로 재구성한 팀 프로젝트입니다.
+              저는 Meta Quest 3 관련 구현·실기기 통합과 companion backend를 담당했습니다.
+            </p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="/f1/">F1 기술 사례 보기</a>
+              <a className="button" href="/f1/#demo">Quest 3 시연 영상</a>
+              <a
+                className="button button-quiet"
+                href="https://github.com/SiyeolKwak/F1_XR_Visualizer"
+                target="_blank"
+                rel="noreferrer"
+              >팀 GitHub <span aria-hidden="true">↗</span><span className="sr-only">새 창</span></a>
+            </div>
+            <dl className="hero-facts" aria-label="대표 프로젝트 요약">
+              <div><dt>Platform</dt><dd>Meta Quest 3</dd></div>
+              <div><dt>Stack</dt><dd>Unity · OpenXR</dd></div>
+              <div><dt>My role · confirmed</dt><dd>Quest 3 · Backend</dd></div>
+            </dl>
+          </div>
+
+          <a className="hero-media" href="/f1/#demo" aria-label="MY LITTLE GRAND PRIX Quest 3 시연 영상 보기">
+            <img
+              src="/images/mlgp-quest3-demo-poster.webp"
+              alt="Quest 3 패스스루 공간에 배치된 MY LITTLE GRAND PRIX 리플레이 디오라마"
+              width="1280"
+              height="720"
+            />
+            <span className="media-kicker">MY LITTLE GRAND PRIX</span>
+            <span className="play-button" aria-hidden="true">▶</span>
+          </a>
         </section>
 
-        <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>Projects</h2>
+        <section id="featured" className="section featured-section" aria-labelledby="featured-title">
+          <div className="section-heading">
+            <p className="section-index">01 / Featured project</p>
+            <div>
+              <p className="section-kicker">Team project · In development</p>
+              <h2 id="featured-title">MY LITTLE GRAND PRIX</h2>
+            </div>
+          </div>
 
-          {projects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
-          ))}
+          <div className="featured-panel">
+            <div className="featured-copy">
+              <span className="status-label">Unity · OpenXR · Meta Quest</span>
+              <h3>데이터 리플레이와 공간 연출을 하나의 경험으로 연결했습니다.</h3>
+              <p>
+                companion REST 서비스가 제공하는 과거 레이스 데이터셋을 공유 시간축에서 재생하고,
+                선택한 이벤트를 실제 방의 Hero 지점에 MR 디오라마로 배치합니다. 상세 페이지에서는
+                저장소로 확인한 구현, 시연 영상에서 관찰한 장면, 실험 상태를 분리해 공개합니다.
+              </p>
+              <div className="inline-actions">
+                <a className="text-link" href="/f1/">전체 기술 사례 읽기 <span aria-hidden="true">→</span></a>
+                <a className="text-link" href="/f1/#architecture">아키텍처 보기 <span aria-hidden="true">→</span></a>
+              </div>
+              <p className="claim-note">
+                OpenF1 직접·실시간 연동, Quest 성능 수치, Entry/Exit 벽 관통 보장은 공개 주장에 포함하지 않습니다.
+              </p>
+            </div>
+
+            <ol className="system-flow" aria-label="대표 프로젝트 시스템 흐름">
+              <li>
+                <span className="flow-number">01</span>
+                <div>
+                  <span className="evidence-tag tag-confirmed">작성자 확인</span>
+                  <h3>Companion backend</h3>
+                  <p>catalog·dataset·manifest·chunk REST 계약으로 replay dataset을 전달합니다.</p>
+                </div>
+              </li>
+              <li>
+                <span className="flow-number">02</span>
+                <div>
+                  <span className="evidence-tag tag-repository">저장소 확인</span>
+                  <h3>Shared replay time</h3>
+                  <p>로드된 다중 차량을 하나의 source-time에서 pause·speed·seek합니다.</p>
+                </div>
+              </li>
+              <li>
+                <span className="flow-number">03</span>
+                <div>
+                  <span className="evidence-tag tag-repository">저장소 확인</span>
+                  <h3>Room-scale presentation</h3>
+                  <p>이벤트 로컬 트랙을 Hero 중심의 MR 디오라마로 강체 배치합니다.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="role" className="section role-section" aria-labelledby="role-title">
+          <div className="section-heading">
+            <p className="section-index">02 / My role</p>
+            <div>
+              <p className="section-kicker">User-confirmed contribution</p>
+              <h2 id="role-title">Quest 3와 backend를 맡았습니다.</h2>
+            </div>
+          </div>
+
+          <div className="role-grid">
+            <article className="role-card">
+              <span className="role-code">XR–01</span>
+              <div>
+                <span className="evidence-tag tag-confirmed">작성자 확인</span>
+                <h3>Meta Quest 3 Integration</h3>
+                <p>
+                  Quest 3 관련 구현과 MR 실기기 통합을 담당했습니다. 패스스루 공간에서 리플레이 스테이지와
+                  이벤트 연출이 동작하는 장면은 제공된 시연 영상에서 확인할 수 있습니다.
+                </p>
+                <a className="text-link" href="/f1/#demo">시연 영상 보기 <span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+            <article className="role-card">
+              <span className="role-code">BE–02</span>
+              <div>
+                <span className="evidence-tag tag-confirmed">작성자 확인</span>
+                <h3>Companion REST Backend</h3>
+                <p>
+                  Unity 클라이언트가 소비하는 replay dataset 전달 경로를 담당했습니다. catalog부터 ready chunk까지
+                  명시적인 REST 계약으로 나눠 재생 데이터가 단계적으로 로드되도록 구성했습니다.
+                </p>
+                <a className="text-link" href="/f1/#pipeline">데이터 흐름 보기 <span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+          </div>
+
+          <div className="evidence-band" aria-label="포트폴리오 근거 구분">
+            <article>
+              <span className="evidence-dot dot-repository" aria-hidden="true" />
+              <h3>저장소 확인</h3>
+              <p>호출점·씬 연결·활성 플랫폼 설정으로 확인한 구현</p>
+            </article>
+            <article>
+              <span className="evidence-dot dot-observed" aria-hidden="true" />
+              <h3>시연 관찰</h3>
+              <p>제공된 Quest 3 편집 영상에서 보이는 실행 장면</p>
+            </article>
+            <article>
+              <span className="evidence-dot dot-confirmed" aria-hidden="true" />
+              <h3>작성자 확인</h3>
+              <p>Quest 3 관련 구현과 companion backend 개인 담당 범위</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="work" className="section work-section" aria-labelledby="work-title">
+          <div className="section-heading">
+            <p className="section-index">03 / Other work</p>
+            <div>
+              <p className="section-kicker">Gameplay systems</p>
+              <h2 id="work-title">다른 작업과 기술 관심사</h2>
+            </div>
+          </div>
+
+          <div className="work-grid">
+            <article className="petlog-card">
+              <div className="petlog-media">
+                <img
+                  src="/images/petlog-main.png"
+                  alt="도시 공간에서 동물을 촬영하고 수집하는 Pet Log 게임 장면"
+                  width="2560"
+                  height="1600"
+                  loading="lazy"
+                />
+                <span>In development</span>
+              </div>
+              <div className="petlog-copy">
+                <p className="section-kicker">Unity gameplay · Personal project</p>
+                <h3>Pet Log</h3>
+                <p>
+                  도시를 탐험하며 동물을 발견하고 촬영한 뒤, 게임 내 SNS에 기록하는 3D 수집형 어드벤처입니다.
+                </p>
+                <ul>
+                  <li>Raycast 기반 동물 감지와 촬영 판정</li>
+                  <li>Set Log 게시글·친구 반응 UI 흐름</li>
+                  <li>UI를 제외한 프레임 캡처와 저장</li>
+                </ul>
+              </div>
+            </article>
+
+            <aside className="focus-card" aria-labelledby="focus-title">
+              <p className="section-kicker">Current focus</p>
+              <h3 id="focus-title">시스템 사이의 경계를 연결하는 개발</h3>
+              <p>
+                클라이언트와 backend, 논리 상태와 시각 표현, 화면 UX와 공간 UX 사이의 계약을 명확히 만드는 데 관심이 있습니다.
+              </p>
+              <ul className="stack-list" aria-label="주요 기술">
+                <li>Unity 6</li>
+                <li>C#</li>
+                <li>Meta Quest 3</li>
+                <li>OpenXR</li>
+                <li>REST / JSON</li>
+                <li>Android</li>
+              </ul>
+              <a className="text-link" href="https://github.com/YunDonggeurami" target="_blank" rel="noreferrer">
+                Personal GitHub <span aria-hidden="true">↗</span><span className="sr-only">새 창</span>
+              </a>
+            </aside>
+          </div>
         </section>
       </main>
-  );
-}
 
-function ProjectCard({ project }) {
-  const isPlanned = project.status === "Planned";
-
-  return (
-      <article style={isPlanned ? styles.emptyCard : styles.card} className="project-card">
-        {project.image ? (
-            <div style={styles.mediaBox}>
-              <img
-                  src={project.image}
-                  alt={`${project.title} 대표 이미지`}
-                  style={styles.projectImage}
-              />
-            </div>
-        ) : (
-            <div style={styles.placeholderBox}>
-              <p style={styles.mediaText}>{project.mediaLabel ?? "Coming Soon"}</p>
-            </div>
-        )}
-
-        <div style={styles.cardHeader}>
-          <p style={styles.projectType}>{project.type}</p>
-          <span style={isPlanned ? styles.plannedBadge : styles.progressBadge}>
-          {project.status}
-        </span>
+      <footer className="site-footer">
+        <div>
+          <p className="section-kicker">Selected work / 2026</p>
+          <h2>Build the system.<br />Show the evidence.</h2>
         </div>
-
-        <h3 style={styles.projectTitle}>{project.title}</h3>
-
-        <p style={styles.projectDescription}>{project.description}</p>
-
-        <h4 style={styles.subTitle}>{project.rolesTitle ?? "담당 / 예정 구현"}</h4>
-        <ul style={styles.list}>
-          {project.roles.map((role) => (
-              <li key={role}>{role}</li>
-          ))}
-        </ul>
-
-        {project.trouble && (
-            <>
-              <h4 style={styles.subTitle}>문제 해결</h4>
-              <p style={styles.projectDescription}>{project.trouble}</p>
-            </>
-        )}
-
-        {project.links && (
-            <div style={styles.buttonRow}>
-              {project.links.caseStudy && (
-                  <a
-                      style={styles.button}
-                      href={project.links.caseStudy}
-                      target="_blank"
-                      rel="noreferrer"
-                  >
-                    Case Study
-                  </a>
-              )}
-              {project.links.github && (
-                  <a
-                      style={styles.button}
-                      href={project.links.github}
-                      target={project.links.github === "#" ? undefined : "_blank"}
-                      rel={project.links.github === "#" ? undefined : "noreferrer"}
-                  >
-                    {project.links.githubLabel ?? "GitHub"}
-                  </a>
-              )}
-              {project.links.video && (
-                  <a style={styles.button} href={project.links.video}>
-                    Video
-                  </a>
-              )}
-              {project.links.build && (
-                  <a style={styles.button} href={project.links.build}>
-                    Build
-                  </a>
-              )}
-            </div>
-        )}
-      </article>
+        <div className="footer-links">
+          <a href="/f1/">F1 Case Study</a>
+          <a href="/f1/#demo">Quest 3 Demo</a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </footer>
+    </div>
   );
 }
-
-const styles = {
-  page: {
-    minHeight: "100vh",
-    padding: "64px",
-    fontFamily: "Arial, sans-serif",
-    background: "#0f1117",
-    color: "#f5f5f5",
-  },
-  hero: {
-    maxWidth: "900px",
-  },
-  label: {
-    fontSize: "14px",
-    fontWeight: "700",
-    color: "#9ca3af",
-    letterSpacing: "1px",
-  },
-  title: {
-    marginTop: "16px",
-    fontSize: "48px",
-    lineHeight: "1.15",
-    maxWidth: "850px",
-    color: "#ffffff",
-  },
-  description: {
-    marginTop: "24px",
-    fontSize: "20px",
-    lineHeight: "1.7",
-    color: "#c7c7c7",
-    maxWidth: "760px",
-  },
-  section: {
-    marginTop: "72px",
-  },
-  sectionTitle: {
-    fontSize: "32px",
-    marginBottom: "24px",
-    color: "#ffffff",
-  },
-  card: {
-    maxWidth: "900px",
-    marginTop: "24px",
-    padding: "32px",
-    borderRadius: "24px",
-    background: "#181b24",
-    border: "1px solid #2a2f3a",
-    boxShadow: "0 12px 30px rgba(0, 0, 0, 0.35)",
-  },
-  emptyCard: {
-    maxWidth: "900px",
-    marginTop: "24px",
-    padding: "32px",
-    borderRadius: "24px",
-    background: "#131722",
-    border: "1px dashed #333b4f",
-  },
-  mediaBox: {
-    width: "100%",
-    aspectRatio: "16 / 9",
-    marginBottom: "32px",
-    borderRadius: "20px",
-    overflow: "hidden",
-    background: "#111827",
-    border: "1px solid #333b4f",
-  },
-  placeholderBox: {
-    width: "100%",
-    height: "180px",
-    marginBottom: "32px",
-    borderRadius: "20px",
-    background: "linear-gradient(135deg, #232838, #111827)",
-    border: "1px solid #333b4f",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  projectImage: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    objectPosition: "center",
-    display: "block",
-  },
-  mediaText: {
-    color: "#9ca3af",
-    fontSize: "16px",
-    fontWeight: "700",
-  },
-  cardHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-    gap: "16px",
-    alignItems: "center",
-  },
-  projectType: {
-    fontSize: "14px",
-    fontWeight: "700",
-    color: "#9ca3af",
-  },
-  progressBadge: {
-    padding: "6px 10px",
-    borderRadius: "999px",
-    background: "#1f2937",
-    color: "#d1d5db",
-    fontSize: "12px",
-    fontWeight: "700",
-  },
-  plannedBadge: {
-    padding: "6px 10px",
-    borderRadius: "999px",
-    background: "#111827",
-    color: "#9ca3af",
-    fontSize: "12px",
-    fontWeight: "700",
-  },
-  projectTitle: {
-    marginTop: "8px",
-    fontSize: "32px",
-    color: "#ffffff",
-  },
-  projectDescription: {
-    marginTop: "16px",
-    fontSize: "17px",
-    lineHeight: "1.7",
-    color: "#d1d5db",
-  },
-  subTitle: {
-    marginTop: "28px",
-    fontSize: "18px",
-    color: "#ffffff",
-  },
-  list: {
-    marginTop: "12px",
-    lineHeight: "1.8",
-    color: "#d1d5db",
-  },
-  buttonRow: {
-    display: "flex",
-    gap: "12px",
-    marginTop: "32px",
-    flexWrap: "wrap",
-  },
-  button: {
-    padding: "10px 16px",
-    borderRadius: "999px",
-    border: "1px solid #3b4252",
-    color: "#f5f5f5",
-    textDecoration: "none",
-    fontSize: "14px",
-    fontWeight: "700",
-    background: "#111827",
-  },
-};
 
 export default App;
